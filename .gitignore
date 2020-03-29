@@ -3,9 +3,6 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-/vJoy Feeder/NSIS Installer/*.exe
-!/vJoy Feeder/NSIS Installer/vJoySetup.exe
-
 # User-specific files
 *.rsuser
 *.suo
@@ -351,3 +348,8 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# Rules added for this repository
+/vJoy Feeder/NSIS Installer/*.exe
+!/vJoy Feeder/NSIS Installer/vJoySetup.exe
+!/vJoy Feeder/Common Files/vJoyInterface/**
