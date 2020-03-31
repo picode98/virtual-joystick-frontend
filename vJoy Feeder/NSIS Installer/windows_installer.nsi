@@ -6,7 +6,7 @@ Unicode True
 !include "x64.nsh"
 
 !include "product_info.nsh"
-!include "vJoyUtils.nsh"
+!include "vJoy_utils.nsh"
 
 ; If build parameters must be passed to the uninstaller in the future, add
 ; /DBUILD_PARAM_NAME=${BUILD_PARAM_NAME} *at the beginning*

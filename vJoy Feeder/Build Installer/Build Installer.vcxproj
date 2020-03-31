@@ -171,6 +171,12 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="..\NSIS Installer\product_info.nsh" />
+    <None Include="..\NSIS Installer\StrLoc.nsh" />
+    <None Include="..\NSIS Installer\StrTok.nsh" />
+    <None Include="..\NSIS Installer\vJoy_utils.nsh" />
+    <None Include="..\NSIS Installer\windows_installer.nsi" />
+    <None Include="..\NSIS Installer\windows_uninstaller.nsi" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

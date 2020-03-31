@@ -7,7 +7,7 @@ RequestExecutionLevel admin
 Name "Virtual Devices Uninstaller"
 
 !include "product_info.nsh"
-!include "vJoyUtils.nsh"
+!include "vJoy_utils.nsh"
 
 Var /GLOBAL startMenuDir
 
