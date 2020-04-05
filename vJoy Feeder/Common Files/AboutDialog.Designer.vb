@@ -37,10 +37,10 @@ Partial Class AboutDialog
         Me.Label1.Location = New System.Drawing.Point(183, 38)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(457, 34)
+        Me.Label1.Size = New System.Drawing.Size(460, 34)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Written by Saaman Khalilollahi primarily for FIRST Robotics Competition" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Team 254" &
-    "4 (Harbor Creek Robotics Club) and other FRC teams."
+        Me.Label1.Text = "Written by Saaman Khalilollahi originally for FIRST Robotics Competition" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Team 25" &
+    "44 (Harbor Creek Robotics Club) and other FRC teams."
         '
         'ApplicationIconBox
         '

@@ -1,6 +1,14 @@
 ; Build Unicode installer
 Unicode True
 
+!ifndef BUILD_PLATFORM
+    !error "Required build parameter BUILD_PLATFORM is not defined."
+!endif
+
+!ifndef BUILD_CONFIG
+    !error "Required build parameter BUILD_CONFIG is not defined."
+!endif
+
 !include "WordFunc.nsh"
 !include "FileFunc.nsh"
 !include "x64.nsh"
@@ -12,18 +20,16 @@ Unicode True
 ; /DBUILD_PARAM_NAME=${BUILD_PARAM_NAME} *at the beginning*
 !makensis "windows_uninstaller.nsi"
 
+!define APP_NAME "${PRODUCT_NAME} Installer"
+
 ; The name of the installer
-Name "Virtual Devices Installer"
+Name "${PRODUCT_NAME}"
+Caption "${APP_NAME}"
 
 ; Request application privileges for Windows Vista
 RequestExecutionLevel admin
 
 InstallDir "$PROGRAMFILES32\Virtual Devices"
-
-Var /GLOBAL restartRequired
-!macro setRestartReq
-    StrCpy $restartRequired "true"
-!macroend
 
 !define DOT_NET_VERSION_4_5 378389
 
@@ -119,11 +125,11 @@ Section "Virtual Devices" VDevices
 		IntCmp $vJoyInstallResult ${INNO_SETUP_INSTALL_SUCCESS} mainInstall vJoyInstallErr vJoyInstallErr
 		
 	vJoyRestartReq:
-		!insertmacro setRestartReq
+		SetRebootFlag true
 		Goto mainInstall
 		
 	vJoyInstallErr:
-		Abort "vJoy install failed with exit code $vJoyInstallResult. See http://jrsoftware.org/is6help/topic_setupexitcodes.htm for more information."
+		Abort "vJoy installation failed with exit code $vJoyInstallResult. See http://jrsoftware.org/is6help/topic_setupexitcodes.htm for more information."
 		
 	mainInstall:
         SetOverwrite ifdiff
@@ -159,7 +165,7 @@ Section "Virtual Devices" VDevices
         WriteRegDWORD HKLM "${INSTALL_KEY}" "NoModify" 1
         WriteRegDWORD HKLM "${INSTALL_KEY}" "NoRepair" 1
 
-        StrCmp $restartRequired "true" +1 endOfSection
+        IfRebootFlag +1 endOfSection
         MessageBox MB_YESNO "A restart is required to complete this installation. Would you like to restart now?" IDYES rebootNow IDNO endOfSection
 
     InstallAbort:

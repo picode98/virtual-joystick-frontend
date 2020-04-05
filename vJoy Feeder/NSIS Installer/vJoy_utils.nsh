@@ -11,7 +11,6 @@ Function getVJoyInstallKey
     ; $4: start location for registry hive truncation
     
     StrCpy $0 "reg.exe QUERY HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall /s /f $\"vJoy Device Driver$\""
-    DetailPrint "Start: Executing $0"
 
     ${If} ${IsWow64}
         StrCpy $0 "$0 /reg:64"

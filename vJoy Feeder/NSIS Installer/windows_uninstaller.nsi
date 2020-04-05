@@ -4,10 +4,14 @@ Unicode True
 ; Request application privileges for Windows Vista
 RequestExecutionLevel admin
 
-Name "Virtual Devices Uninstaller"
-
 !include "product_info.nsh"
 !include "vJoy_utils.nsh"
+
+!define APP_NAME "${PRODUCT_NAME} Uninstaller"
+
+; The name of the installer
+Name "${PRODUCT_NAME}"
+Caption "${APP_NAME}"
 
 Var /GLOBAL startMenuDir
 
@@ -41,7 +45,9 @@ Section "Virtual Devices Uninstall" VDevicesUninst
     RMDir $startMenuDir
 
 
-    MessageBox MB_YESNO "Remove vJoy as well?" IDYES uninstallVJoy IDNO endSuccess
+    MessageBox MB_YESNO "Remove vJoy as well?$\n\
+        (If nothing else installed uses this software,$\n\
+        you can safely select Yes.)" IDYES uninstallVJoy IDNO endSuccess
 
     uninstallVJoy:
         SetOutPath $installLoc
@@ -68,7 +74,7 @@ Section "Virtual Devices Uninstall" VDevicesUninst
         Goto endFailure
 
     vJoyNotFound:
-        StrCpy $errorStr "Could not find vJoy installation."
+        StrCpy $errorStr "Could not find a vJoy installation."
         Goto endFailure
 
     endSuccess:
