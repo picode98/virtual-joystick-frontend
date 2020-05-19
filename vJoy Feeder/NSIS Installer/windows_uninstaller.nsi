@@ -35,6 +35,8 @@ Section "Virtual Devices Uninstall" VDevicesUninst
     Delete /REBOOTOK "One_X-Box_Controller.bat"
     Delete /REBOOTOK "Two_Logitech_Attack_3_Joysticks.bat"
 
+	Delete /REBOOTOK "LICENSE.txt"
+
     SetOutPath $startMenuDir
     Delete /REBOOTOK "Virtual X-Box 360 Controller.lnk"
     Delete /REBOOTOK "Virtual Logitech Attack 3.lnk"
@@ -46,7 +48,7 @@ Section "Virtual Devices Uninstall" VDevicesUninst
 
 
     MessageBox MB_YESNO "Remove vJoy as well?$\n\
-        (If nothing else installed uses this software,$\n\
+        (If nothing else installed uses vJoy,$\n\
         you can safely select Yes.)" IDYES uninstallVJoy IDNO endSuccess
 
     uninstallVJoy:

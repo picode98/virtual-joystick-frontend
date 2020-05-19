@@ -62,6 +62,9 @@ Var /GLOBAL startMenuDir
 ;     ReadRegStr $thisName HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$thisKey" "DisplayName"
 ; FunctionEnd
 
+LicenseData "..\..\LICENSE.txt"
+
+Page license
 Page directory
 Page instfiles
 
@@ -134,6 +137,8 @@ Section "Virtual Devices" VDevices
 	mainInstall:
         SetOverwrite ifdiff
         SetOutPath $INSTDIR
+
+		File /oname=LICENSE.txt "..\..\LICENSE.txt"
 
         File /oname=uninstall.exe "windows_uninstaller.exe"
         File /oname=vJoyInterface.dll "..\Common Files\vJoyInterface\${BUILD_PLATFORM}\vJoyInterface.dll"
